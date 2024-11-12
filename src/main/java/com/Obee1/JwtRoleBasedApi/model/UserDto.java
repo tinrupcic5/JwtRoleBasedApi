@@ -1,6 +1,5 @@
 package com.Obee1.JwtRoleBasedApi.model;
 
-
 import com.Obee1.JwtRoleBasedApi.entity.User;
 
 public class UserDto {

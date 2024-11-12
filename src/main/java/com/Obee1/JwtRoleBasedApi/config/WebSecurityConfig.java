@@ -1,5 +1,6 @@
 package com.Obee1.JwtRoleBasedApi.config;
 
+import com.Obee1.JwtRoleBasedApi.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -22,13 +22,13 @@ import jakarta.annotation.Resource;
 public class WebSecurityConfig {
 
     @Resource(name = "userService")
-    private final UserDetailsService userDetailsService;
+    private final UserServiceImpl userDetailsService;
 
     private final UnauthorizedEntryPoint unauthorizedEntryPoint;
 
     private final PasswordEncoder encoder;
 
-    public WebSecurityConfig(UnauthorizedEntryPoint unauthorizedEntryPoint, UserDetailsService userDetailsService, PasswordEncoder encoder) {
+    public WebSecurityConfig(UnauthorizedEntryPoint unauthorizedEntryPoint, UserServiceImpl userDetailsService, PasswordEncoder encoder) {
         this.unauthorizedEntryPoint = unauthorizedEntryPoint;
         this.userDetailsService = userDetailsService;
         this.encoder = encoder;

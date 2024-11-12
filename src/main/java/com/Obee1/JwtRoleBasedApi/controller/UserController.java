@@ -7,7 +7,6 @@ import com.Obee1.JwtRoleBasedApi.model.AuthToken;
 import com.Obee1.JwtRoleBasedApi.model.LoginUser;
 import com.Obee1.JwtRoleBasedApi.model.UserDto;
 import com.Obee1.JwtRoleBasedApi.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -67,42 +66,32 @@ public class UserController {
         return userService.save(user);
     }
 
-    /**
-     * Returns a message that can only be accessed by users with the 'ADMIN' role.
-     *
-     * @return A message that can only be accessed by admins.
-     */
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping(value="/adminping")
+    @GetMapping("/adminping")
     public String adminPing(){
         return "Only Admins Can Read This";
     }
 
-    /**
-     * Returns a message that can be accessed by any user.
-     *
-     * @return A message that can be accessed by any user.
-     */
     @PreAuthorize("hasRole('USER')")
-    @GetMapping(value="/userping")
+    @GetMapping("/userping")
     public String userPing(){
         return "Any User Can Read This";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping(value="/create/employee")
+    @PostMapping("/create/employee")
     public User createEmployee(@RequestBody UserDto user){
         return userService.createEmployee(user);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping(value="/find/all")
+    @GetMapping("/find/all")
     public List<User> getAllList(){
         return userService.findAll();
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value="/find/by/username", method = RequestMethod.GET)
+    @GetMapping("/find/by/username")
     public User getAllList(@RequestParam String username){
         return userService.findOne(username);
     }
