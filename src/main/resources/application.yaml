@@ -3,7 +3,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
     url: jdbc:postgresql://localhost:15433/demo_db_local
     username: demo
@@ -28,7 +28,7 @@ jwt:
     validity: 18000
     prefix: "Bearer"
   signing:
-    key: "YourSignInKey"
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNvbWVBcHAiLCJpYXQiOjE1MTYyMzkwMjJ9.zJrqNzuqo4Z9WtPZQYTycE8Fw6fRJLJXv6MyKdJGOBE"
   authorities:
     key: "roles"
   header:
