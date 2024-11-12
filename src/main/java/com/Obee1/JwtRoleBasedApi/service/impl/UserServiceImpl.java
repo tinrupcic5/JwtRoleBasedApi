@@ -12,7 +12,6 @@ import com.Obee1.JwtRoleBasedApi.model.UserDto;
 import com.Obee1.JwtRoleBasedApi.repository.UserJpaRepository;
 import com.Obee1.JwtRoleBasedApi.service.RoleService;
 import com.Obee1.JwtRoleBasedApi.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

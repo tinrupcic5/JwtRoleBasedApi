@@ -62,7 +62,7 @@ public class UserController {
      * @param user The user to be saved.
      * @return The saved user.
      */
-    @RequestMapping(value="/register", method = RequestMethod.POST)
+    @PostMapping("/register")
     public User saveUser(@RequestBody UserDto user){
         return userService.save(user);
     }
@@ -73,7 +73,7 @@ public class UserController {
      * @return A message that can only be accessed by admins.
      */
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value="/adminping", method = RequestMethod.GET)
+    @GetMapping(value="/adminping")
     public String adminPing(){
         return "Only Admins Can Read This";
     }
@@ -84,19 +84,19 @@ public class UserController {
      * @return A message that can be accessed by any user.
      */
     @PreAuthorize("hasRole('USER')")
-    @RequestMapping(value="/userping", method = RequestMethod.GET)
+    @GetMapping(value="/userping")
     public String userPing(){
         return "Any User Can Read This";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value="/create/employee", method = RequestMethod.POST)
+    @PostMapping(value="/create/employee")
     public User createEmployee(@RequestBody UserDto user){
         return userService.createEmployee(user);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value="/find/all", method = RequestMethod.GET)
+    @GetMapping(value="/find/all")
     public List<User> getAllList(){
         return userService.findAll();
     }
