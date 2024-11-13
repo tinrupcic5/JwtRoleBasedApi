@@ -14,7 +14,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -35,15 +37,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    /**
-     * Generates a token for the given user credentials.
-     *
-     * @param loginUser The user's login credentials.
-     * @return A response entity containing the generated token.
-     * @throws AuthenticationException if authentication fails.
-     */
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> generateToken(@RequestBody LoginUser loginUser) throws AuthenticationException {
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthToken> generateToken(@RequestBody LoginUser loginUser) throws AuthenticationException {
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginUser.getUsername(),
@@ -55,12 +50,6 @@ public class UserController {
         return ResponseEntity.ok(new AuthToken(token));
     }
 
-    /**
-     * Saves a new user.
-     *
-     * @param user The user to be saved.
-     * @return The saved user.
-     */
     @PostMapping("/register")
     public User saveUser(@RequestBody UserDto user){
         return userService.save(user);

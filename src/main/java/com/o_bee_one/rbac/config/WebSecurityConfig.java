@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -25,18 +27,22 @@ public class WebSecurityConfig {
 
     private final UnauthorizedEntryPoint unauthorizedEntryPoint;
 
-    private final PasswordEncoder encoder;
+    private final PasswordEncoderConfiguration encoder;
 
-    public WebSecurityConfig(UnauthorizedEntryPoint unauthorizedEntryPoint, UserServiceImpl userDetailsService, PasswordEncoder encoder) {
+    public WebSecurityConfig(UnauthorizedEntryPoint unauthorizedEntryPoint, UserServiceImpl userDetailsService, PasswordEncoderConfiguration encoder) {
         this.unauthorizedEntryPoint = unauthorizedEntryPoint;
         this.userDetailsService = userDetailsService;
         this.encoder = encoder;
     }
 
     @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);
-        auth.userDetailsService(userDetailsService).passwordEncoder(encoder.bcryptPasswordEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
         return auth.build();
     }
 
