@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class AuthToken {
-    private String token;
+  private String token;
 
-    public AuthToken(String token) {
-        this.token = token;
-    }
+  public AuthToken(String token) {
+    this.token = token;
+  }
 }

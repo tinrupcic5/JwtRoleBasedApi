@@ -1,6 +1,5 @@
 package com.o_bee_one.rbac.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +10,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "app_role")
 public class Role {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
 
-    @Column
-    private String name;
+  @Column private String name;
 
-    @Column
-    private String description;
-
+  @Column private String description;
 }
