@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "app_user")
-public class User {
+public class UserEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +33,5 @@ public class User {
       name = "USER_ROLES",
       joinColumns = {@JoinColumn(name = "USER_ID")},
       inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")})
-  private Set<Role> roles;
+  private Set<RoleEntity> roleEntities;
 }

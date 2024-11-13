@@ -2,13 +2,13 @@
 
 ## Overview
 
-This project demonstrates how to implement Role-Based Access Control (RBAC) in a Spring Boot application using JWT (JSON Web Tokens) for user authentication and authorization. The system manages different user roles, such as **Admin**, **User**, etc., to restrict access to resources based on the roles assigned to users.
+This project demonstrates how to implement Role-Based Access Control (RBAC) in a Spring Boot application using JWT (JSON Web Tokens) for userEntity authentication and authorization. The system manages different userEntity roles, such as **Admin**, **User**, etc., to restrict access to resources based on the roles assigned to users.
 
-Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token generation and role validation. This setup ensures that only authorized users with the appropriate roles can access specific endpoints.
+Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token generation and roleEntity validation. This setup ensures that only authorized users with the appropriate roles can access specific endpoints.
 
 
 - Building a Role-Based Access Control System with JWT in Spring Boot
-  ([dev.to](https://dev.to/alphaaman/building-a-role-based-access-control-system-with-jwt-in-spring-boot-a7l))
+  ([dev.to](https://dev.to/alphaaman/building-a-roleEntity-based-access-control-system-with-jwt-in-spring-boot-a7l))
 
 - Spring security ([Configuration Migrations](https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html))
   

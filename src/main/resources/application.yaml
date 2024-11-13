@@ -31,5 +31,7 @@ jwt:
     key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InNvbWVBcHAiLCJpYXQiOjE1MTYyMzkwMjJ9.zJrqNzuqo4Z9WtPZQYTycE8Fw6fRJLJXv6MyKdJGOBE"
   authorities:
     key: "roles"
+  permissions:
+    key: "permissions"
   header:
     string: "Authorization"

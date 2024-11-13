@@ -1,10 +1,11 @@
 package com.o_bee_one.rbac.controller;
 
 import com.o_bee_one.rbac.config.TokenProvider;
-import com.o_bee_one.rbac.entity.User;
+import com.o_bee_one.rbac.entity.UserEntity;
 import com.o_bee_one.rbac.model.AuthToken;
 import com.o_bee_one.rbac.model.LoginUser;
 import com.o_bee_one.rbac.model.UserDto;
+import com.o_bee_one.rbac.permission.ReadPermission;
 import com.o_bee_one.rbac.service.UserService;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -49,37 +50,37 @@ public class UserController {
   }
 
   @PostMapping("/register")
-  public User saveUser(@RequestBody UserDto user) {
+  public UserEntity saveUser(@RequestBody UserDto user) {
     return userService.save(user);
   }
 
-  @PreAuthorize("hasRole('ADMIN')")
+  @PreAuthorize("hasRole('ADMIN') and hasAuthority('WRITE')")
   @GetMapping("/adminping")
   public String adminPing() {
     return "Only Admins Can Read This";
   }
 
-  @PreAuthorize("hasRole('USER')")
   @GetMapping("/userping")
+  @ReadPermission
   public String userPing() {
     return "Any User Can Read This";
   }
 
   @PreAuthorize("hasRole('ADMIN')")
   @PostMapping("/create/employee")
-  public User createEmployee(@RequestBody UserDto user) {
+  public UserEntity createEmployee(@RequestBody UserDto user) {
     return userService.createEmployee(user);
   }
 
   @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/find/all")
-  public List<User> getAllList() {
+  public List<UserEntity> getAllList() {
     return userService.findAll();
   }
 
   @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/find/by/username")
-  public User getAllList(@RequestParam String username) {
+  public UserEntity getAllList(@RequestParam String username) {
     return userService.findOne(username);
   }
 }

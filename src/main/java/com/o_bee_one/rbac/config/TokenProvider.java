@@ -2,6 +2,7 @@ package com.o_bee_one.rbac.config;
 
 import io.jsonwebtoken.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
@@ -26,6 +27,9 @@ public class TokenProvider implements Serializable {
 
   @Value("${jwt.authorities.key}")
   public String AUTHORITIES_KEY;
+
+  @Value("${jwt.permissions.key}")
+  public String PERMISSION_KEY;
 
   public String getUsernameFromToken(String token) {
     return getClaimFromToken(token, Claims::getSubject);
@@ -53,11 +57,19 @@ public class TokenProvider implements Serializable {
     String authorities =
         authentication.getAuthorities().stream()
             .map(GrantedAuthority::getAuthority)
+            .filter(authority -> authority.startsWith("ROLE_"))
+            .collect(Collectors.joining(","));
+
+    String permissions =
+        authentication.getAuthorities().stream()
+            .map(GrantedAuthority::getAuthority)
+            .filter(authority -> authority.startsWith("PERMISSION_"))
             .collect(Collectors.joining(","));
 
     return Jwts.builder()
         .setSubject(authentication.getName())
         .claim(AUTHORITIES_KEY, authorities)
+        .claim(PERMISSION_KEY, permissions)
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + TOKEN_VALIDITY * 1000))
         .signWith(SignatureAlgorithm.HS256, SIGNING_KEY)
@@ -70,19 +82,27 @@ public class TokenProvider implements Serializable {
   }
 
   UsernamePasswordAuthenticationToken getAuthenticationToken(
-      final String token, final UserDetails userDetails) {
+          final String token, final UserDetails userDetails) {
 
     final JwtParser jwtParser = Jwts.parser().setSigningKey(SIGNING_KEY);
-
     final Jws<Claims> claimsJws = jwtParser.parseClaimsJws(token);
-
     final Claims claims = claimsJws.getBody();
 
-    final Collection<? extends GrantedAuthority> authorities =
-        Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
-            .map(SimpleGrantedAuthority::new)
-            .collect(Collectors.toList());
+    final Collection<? extends GrantedAuthority> roles =
+            Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
+                    .map(SimpleGrantedAuthority::new)
+                    .toList();
+
+    final Collection<? extends GrantedAuthority> permissions =
+            Arrays.stream(claims.get(PERMISSION_KEY).toString().split(","))
+                    .map(SimpleGrantedAuthority::new)
+                    .toList();
+
+    final Collection<GrantedAuthority> authorities = new ArrayList<>();
+    authorities.addAll(roles);
+    authorities.addAll(permissions);
 
     return new UsernamePasswordAuthenticationToken(userDetails, "", authorities);
   }
+
 }
