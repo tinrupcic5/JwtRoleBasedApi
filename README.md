@@ -4,7 +4,7 @@
 
 This project demonstrates how to implement Role-Based Access Control (RBAC) in a Spring Boot application using JWT (JSON Web Tokens) for user authentication and authorization. The system manages different user roles, such as **Admin**, **User**, etc., to restrict access to resources based on the roles assigned to users.
 
-We use **Spring Boot**, **Spring Security**, and **JWT** for secure token generation and role validation. This setup ensures that only authorized users with the appropriate roles can access specific endpoints.
+Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token generation and role validation. This setup ensures that only authorized users with the appropriate roles can access specific endpoints.
 
 
 - Building a Role-Based Access Control System with JWT in Spring Boot
@@ -28,5 +28,19 @@ We use **Spring Boot**, **Spring Security**, and **JWT** for secure token genera
 - **Maven** for dependency management
 - **Spring Data JPA** (optional, for database integration)
 
+## Spotless Code Formatting
 
+Spotless is configured to automatically format code according to defined style rules. This includes organizing imports, enforcing indentation, and following naming conventions, among other rules. By running Spotless, you can automatically format your code, ensuring it adheres to the project's standards.
 
+This project uses the Spotless Maven Plugin (version 2.43.0) with Google Java Format.
+- Maven Spotless Plugin for Java ([Baeldung](https://www.baeldung.com/java-maven-spotless-plugin))
+### How to Run Spotless
+- **Check Formatting**: before committing to ensure your code meets the project's formatting standards.
+  ```bash
+  mvn spotless:check
+  ```
+
+- **Apply Formatting**: to fix issues automatically
+  ```bash
+  mvn spotless:apply
+  ```
