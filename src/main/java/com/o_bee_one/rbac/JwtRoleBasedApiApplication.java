@@ -1,4 +1,4 @@
-package com.Obee1.JwtRoleBasedApi;
+package com.o_bee_one.rbac;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

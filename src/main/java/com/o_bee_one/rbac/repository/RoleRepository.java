@@ -1,6 +1,6 @@
-package com.Obee1.JwtRoleBasedApi.repository;
+package com.o_bee_one.rbac.repository;
 
-import com.Obee1.JwtRoleBasedApi.entity.Role;
+import com.o_bee_one.rbac.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

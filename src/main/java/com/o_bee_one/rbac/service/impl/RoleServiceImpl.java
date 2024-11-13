@@ -1,8 +1,8 @@
-package com.Obee1.JwtRoleBasedApi.service.impl;
+package com.o_bee_one.rbac.service.impl;
 
-import com.Obee1.JwtRoleBasedApi.entity.Role;
-import com.Obee1.JwtRoleBasedApi.repository.RoleRepository;
-import com.Obee1.JwtRoleBasedApi.service.RoleService;
+import com.o_bee_one.rbac.entity.Role;
+import com.o_bee_one.rbac.repository.RoleRepository;
+import com.o_bee_one.rbac.service.RoleService;
 import org.springframework.stereotype.Service;
 
 @Service(value = "roleService")

@@ -1,8 +1,8 @@
-package com.Obee1.JwtRoleBasedApi.service;
+package com.o_bee_one.rbac.service;
 
 
-import com.Obee1.JwtRoleBasedApi.entity.User;
-import com.Obee1.JwtRoleBasedApi.model.UserDto;
+import com.o_bee_one.rbac.entity.User;
+import com.o_bee_one.rbac.model.UserDto;
 
 import java.util.List;
 

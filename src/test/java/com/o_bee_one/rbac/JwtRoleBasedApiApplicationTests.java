@@ -1,4 +1,4 @@
-package com.Obee1.JwtRoleBasedApi;
+package com.o_bee_one.rbac;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

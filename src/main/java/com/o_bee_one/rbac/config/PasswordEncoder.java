@@ -1,4 +1,4 @@
-package com.Obee1.JwtRoleBasedApi.config;
+package com.o_bee_one.rbac.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,12 +1,12 @@
-package com.Obee1.JwtRoleBasedApi.controller;
+package com.o_bee_one.rbac.controller;
 
 
-import com.Obee1.JwtRoleBasedApi.config.TokenProvider;
-import com.Obee1.JwtRoleBasedApi.entity.User;
-import com.Obee1.JwtRoleBasedApi.model.AuthToken;
-import com.Obee1.JwtRoleBasedApi.model.LoginUser;
-import com.Obee1.JwtRoleBasedApi.model.UserDto;
-import com.Obee1.JwtRoleBasedApi.service.UserService;
+import com.o_bee_one.rbac.config.TokenProvider;
+import com.o_bee_one.rbac.entity.User;
+import com.o_bee_one.rbac.model.AuthToken;
+import com.o_bee_one.rbac.model.LoginUser;
+import com.o_bee_one.rbac.model.UserDto;
+import com.o_bee_one.rbac.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;

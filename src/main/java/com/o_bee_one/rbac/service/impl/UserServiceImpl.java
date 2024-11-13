@@ -1,4 +1,4 @@
-package com.Obee1.JwtRoleBasedApi.service.impl;
+package com.o_bee_one.rbac.service.impl;
 
 
 import java.util.ArrayList;
@@ -6,12 +6,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.Obee1.JwtRoleBasedApi.entity.Role;
-import com.Obee1.JwtRoleBasedApi.entity.User;
-import com.Obee1.JwtRoleBasedApi.model.UserDto;
-import com.Obee1.JwtRoleBasedApi.repository.UserJpaRepository;
-import com.Obee1.JwtRoleBasedApi.service.RoleService;
-import com.Obee1.JwtRoleBasedApi.service.UserService;
+import com.o_bee_one.rbac.entity.Role;
+import com.o_bee_one.rbac.entity.User;
+import com.o_bee_one.rbac.model.UserDto;
+import com.o_bee_one.rbac.repository.UserJpaRepository;
+import com.o_bee_one.rbac.service.RoleService;
+import com.o_bee_one.rbac.service.UserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
