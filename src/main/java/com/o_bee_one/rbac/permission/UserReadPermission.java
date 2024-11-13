@@ -10,5 +10,5 @@ import org.springframework.security.access.prepost.PreAuthorize;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-@PreAuthorize("hasRole('USER') and hasAuthority('PERMISSION_WRITE') and hasAuthority('PERMISSION_READ')")
-public @interface ReadPermission {}
+@PreAuthorize("hasRole('USER') and hasAuthority('PERMISSION_READ')")
+public @interface UserReadPermission {}

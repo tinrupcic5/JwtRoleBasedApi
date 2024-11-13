@@ -6,5 +6,5 @@ import org.springframework.security.access.prepost.PreAuthorize;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-@PreAuthorize("hasAuthority('WRITE')")
-public @interface WritePermission {}
+@PreAuthorize("hasRole('USER') and hasAuthority('PERMISSION_WRITE')")
+public @interface UserWritePermission {}

@@ -5,7 +5,9 @@ import com.o_bee_one.rbac.entity.UserEntity;
 import com.o_bee_one.rbac.model.AuthToken;
 import com.o_bee_one.rbac.model.LoginUser;
 import com.o_bee_one.rbac.model.UserDto;
-import com.o_bee_one.rbac.permission.ReadPermission;
+import com.o_bee_one.rbac.permission.AdminPermission;
+import com.o_bee_one.rbac.permission.UserReadPermission;
+import com.o_bee_one.rbac.permission.UserWritePermission;
 import com.o_bee_one.rbac.service.UserService;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -54,16 +56,21 @@ public class UserController {
     return userService.save(user);
   }
 
-  @PreAuthorize("hasRole('ADMIN') and hasAuthority('WRITE')")
   @GetMapping("/adminping")
+  @AdminPermission
   public String adminPing() {
     return "Only Admins Can Read This";
   }
 
   @GetMapping("/userping")
-  @ReadPermission
+  @UserReadPermission
   public String userPing() {
     return "Any User Can Read This";
+  }
+  @GetMapping("/userwrite")
+  @UserWritePermission
+  public String userWrite() {
+    return "Any User Can Write This";
   }
 
   @PreAuthorize("hasRole('ADMIN')")
