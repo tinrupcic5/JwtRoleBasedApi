@@ -1,16 +1,16 @@
 package com.o_bee_one.rbac.service;
 
-import com.o_bee_one.rbac.entity.UserEntity;
+import com.o_bee_one.rbac.entity.User;
 import com.o_bee_one.rbac.model.UserDto;
 import java.util.List;
 
 public interface UserService {
 
-  UserEntity save(UserDto user);
+  User save(UserDto user);
 
-  List<UserEntity> findAll();
+  List<User> findAll();
 
-  UserEntity findOne(String username);
+  User findOne(String username);
 
-  UserEntity createEmployee(UserDto user);
+  User createEmployee(UserDto user);
 }

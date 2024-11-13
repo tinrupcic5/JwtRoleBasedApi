@@ -1,13 +1,10 @@
 package com.o_bee_one.rbac.controller;
 
 import com.o_bee_one.rbac.config.TokenProvider;
-import com.o_bee_one.rbac.entity.UserEntity;
+import com.o_bee_one.rbac.entity.User;
 import com.o_bee_one.rbac.model.AuthToken;
 import com.o_bee_one.rbac.model.LoginUser;
 import com.o_bee_one.rbac.model.UserDto;
-import com.o_bee_one.rbac.permission.AdminPermission;
-import com.o_bee_one.rbac.permission.UserReadPermission;
-import com.o_bee_one.rbac.permission.UserWritePermission;
 import com.o_bee_one.rbac.service.UserService;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -52,42 +49,37 @@ public class UserController {
   }
 
   @PostMapping("/register")
-  public UserEntity saveUser(@RequestBody UserDto user) {
+  public User saveUser(@RequestBody UserDto user) {
     return userService.save(user);
   }
 
+  @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/adminping")
-  @AdminPermission
   public String adminPing() {
     return "Only Admins Can Read This";
   }
 
+  @PreAuthorize("hasRole('USER')")
   @GetMapping("/userping")
-  @UserReadPermission
   public String userPing() {
     return "Any User Can Read This";
-  }
-  @GetMapping("/userwrite")
-  @UserWritePermission
-  public String userWrite() {
-    return "Any User Can Write This";
   }
 
   @PreAuthorize("hasRole('ADMIN')")
   @PostMapping("/create/employee")
-  public UserEntity createEmployee(@RequestBody UserDto user) {
+  public User createEmployee(@RequestBody UserDto user) {
     return userService.createEmployee(user);
   }
 
   @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/find/all")
-  public List<UserEntity> getAllList() {
+  public List<User> getAllList() {
     return userService.findAll();
   }
 
   @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/find/by/username")
-  public UserEntity getAllList(@RequestParam String username) {
+  public User getAllList(@RequestParam String username) {
     return userService.findOne(username);
   }
 }
