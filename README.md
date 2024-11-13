@@ -11,14 +11,16 @@ Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token g
   ([dev.to](https://dev.to/alphaaman/building-a-roleEntity-based-access-control-system-with-jwt-in-spring-boot-a7l))
 
 - Spring security ([Configuration Migrations](https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html))
-  
+
 
 ## Features
 
-- **User Authentication**: Uses JWT to authenticate users securely.
-- **Role-Based Authorization**: Roles like Admin, User, and others are assigned to users, and access to resources is controlled based on these roles.
-- **Secure Endpoints**: Specific API endpoints are protected and require valid JWTs for access.
-- **Spring Security Integration**: Spring Security is used to handle the authentication and authorization processes.
+- **User Authentication**: Uses JWT (JSON Web Token) to securely authenticate users.
+- **Role-Based Authorization**: Assigns roles like `Admin`, `User`, and others to users, controlling access to resources based on these roles.
+- **Permission-Based Access Control**: In addition to roles, permissions such as `READ` and `WRITE` are assigned to users for more granular access control, allowing fine-tuned management of user actions.
+- **Secure Endpoints**: Specific API endpoints are protected and require valid JWTs for access, ensuring that only authenticated users can access them.
+- **Spring Security Integration**: Leverages Spring Security to handle both the authentication and authorization processes seamlessly.
+
 
 ## Technologies
 
