@@ -30,7 +30,7 @@ Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token g
 
 ## Spotless Code Formatting :doughnut:
 
-Spotless is configured to automatically format code according to defined style rules. This includes organizing imports, enforcing indentation, and following naming conventions, among other rules. By running Spotless, you can automatically format your code, ensuring it adheres to the project's standards.
+Spotless is configured to automatically format code according to defined style rules. This includes organizing imports, enforcing indentation, and following naming conventions, among other rules. By running Spotless, you can automatically format your code, ensuring it follows project's standards.
 
 This project uses the Spotless Maven Plugin (version 2.43.0) with Google Java Format.
 - Maven Spotless Plugin for Java ([Baeldung](https://www.baeldung.com/java-maven-spotless-plugin))
