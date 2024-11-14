@@ -17,7 +17,6 @@ Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token g
 
 - **User Authentication**: Uses JWT (JSON Web Token) to securely authenticate users.
 - **Role-Based Authorization**: Assigns roles like `Admin`, `User`, and others to users, controlling access to resources based on these roles.
-- **Permission-Based Access Control**: In addition to roles, permissions such as `READ` and `WRITE` are assigned to users for more granular access control, allowing fine-tuned management of user actions.
 - **Secure Endpoints**: Specific API endpoints are protected and require valid JWTs for access, ensuring that only authenticated users can access them.
 - **Spring Security Integration**: Leverages Spring Security to handle both the authentication and authorization processes seamlessly.
 
