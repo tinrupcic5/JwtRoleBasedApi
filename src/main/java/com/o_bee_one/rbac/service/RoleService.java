@@ -1,7 +1,7 @@
 package com.o_bee_one.rbac.service;
 
-import com.o_bee_one.rbac.entity.Role;
+import com.o_bee_one.rbac.entity.RoleEntity;
 
 public interface RoleService {
-  Role findByName(String name);
+  RoleEntity findByName(String name);
 }
