@@ -8,7 +8,7 @@ Project use **Spring Boot**, **Spring Security**, and **JWT** for secure token g
 
 
 - Building a Role-Based Access Control System with JWT in Spring Boot
-  ([dev.to](https://dev.to/alphaaman/building-a-roleEntity-based-access-control-system-with-jwt-in-spring-boot-a7l))
+  ([dev.to](https://dev.to/alphaaman/building-a-role-based-access-control-system-with-jwt-in-spring-boot-a7l))
 
 - Spring security ([Configuration Migrations](https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html))
 
